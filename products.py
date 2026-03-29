@@ -24,7 +24,7 @@ PRODUCTS = {
         "price": "From EUR 1,000",
         "price_note": "+ EUR 100/seat (up to 25 seats) for interactive Q&A",
         "link_type": "stripe",
-        "url": CALENDLY_URL,  # Placeholder until Stripe Payment Link is created
+        "url": "https://buy.stripe.com/bJe8wO8bjgI1cfK8fjejK01",
         "cta_text": "Book Keynote",
         "icon": "lecture",
     },
