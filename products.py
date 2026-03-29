@@ -10,18 +10,18 @@ PRODUCTS = {
         "id": "workshop",
         "name": "2-Hour Digital Twin Workshop",
         "description": "Hands-on workshop tailored to your situation. We map your reality, define outcomes, and build your first Minimal Viable Twin strategy together.",
-        "price": "EUR 2,500",
+        "price": "EUR 2,000",
         "price_note": "Flat rate, up to 10 participants",
         "link_type": "stripe",
-        "url": CALENDLY_URL,  # Placeholder until Stripe Payment Link is created
+        "url": "https://buy.stripe.com/28EbJ0gHP77rdjO1QVejK00",
         "cta_text": "Book Workshop",
         "icon": "workshop",
     },
     "lecture": {
         "id": "lecture",
-        "name": "Inspirational Keynote",
+        "name": "Inspirational Keynote — Where Your Future is Heading",
         "description": "1-hour keynote on the future of digital twins, AI, and interoperability — with interactive Q&A. Perfect for leadership teams and conferences.",
-        "price": "From EUR 10,000",
+        "price": "From EUR 1,000",
         "price_note": "+ EUR 100/seat (up to 25 seats) for interactive Q&A",
         "link_type": "stripe",
         "url": CALENDLY_URL,  # Placeholder until Stripe Payment Link is created
