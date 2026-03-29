@@ -12,8 +12,8 @@ PRODUCTS = {
         "description": "45-minute deep dive into your as-is situation with a readiness assessment. You receive a personalised strategy document with concrete next steps after the session.",
         "price": "EUR 500",
         "price_note": "EUR 500 discount when combined with a workshop booking",
-        "link_type": "calendly",
-        "url": CALENDLY_URL,  # Stripe link TBD
+        "link_type": "stripe",
+        "url": "https://buy.stripe.com/9B6cN48bj2Rb5Rm9jnejK03",
         "cta_text": "Book Strategy Session",
         "icon": "strategy",
     },
