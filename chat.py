@@ -8,8 +8,8 @@ import httpx
 from knowledge import store
 from anonymizer import anonymize_text
 
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-USE_AI = bool(ANTHROPIC_API_KEY)
+def _get_api_key():
+    return os.getenv("ANTHROPIC_API_KEY", "")
 BOOKING_URL = "https://calendly.com/futurecreation"
 
 SYSTEM_PROMPT = """You are a digital twin knowledge assistant, powered by the SMILE methodology (Sustainable Methodology for Impact Lifecycle Enablement) created by Nicolas Waern.
@@ -199,7 +199,7 @@ async def generate_response(query: str, message_count: int = 0) -> dict:
     # Detect user intent
     intents = detect_intent(query)
 
-    if USE_AI:
+    if _get_api_key():
         answer = await _call_claude(query, context)
         answer = anonymize_text(answer)
     else:
@@ -219,7 +219,7 @@ async def _call_claude(query: str, context: str) -> str:
             response = await client.post(
                 "https://api.anthropic.com/v1/messages",
                 headers={
-                    "x-api-key": ANTHROPIC_API_KEY,
+                    "x-api-key": _get_api_key(),
                     "anthropic-version": "2023-06-01",
                     "content-type": "application/json",
                 },
