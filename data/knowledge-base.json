@@ -1,0 +1,211 @@
+[
+  {
+    "id": "kb-001",
+    "title": "Impact First, Data Last",
+    "content": "The most common mistake in digital twin implementations is starting with data collection. Organizations spend months collecting and integrating data before understanding what impact they want to achieve. SMILE reverses this: start with the desired outcome, trace back through actions, insights, and information to understand what data is actually needed. This reduces implementation time by eliminating unnecessary data collection and focuses investment on value-generating activities.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "presentation",
+    "tags": ["methodology", "strategy", "common-mistakes", "reality-emulation"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-002",
+    "title": "The Greenest Asset Is the One That Already Exists",
+    "content": "More than 80% of the buildings existing in 2050 will be made up by the ones that already exist today. In order to meet long-term political goals (zero greenhouse emissions by 2045), we must create robust, useful, attractive, and highly scalable energy efficiency solutions for existing real estate portfolios. Self-learning, platform-independent, open control systems can optimize heating supply considering individual rooms, the in-house system, and the energy supplier — striving for the lowest possible CO2 emissions as a whole.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "presentation",
+    "tags": ["sustainability", "smart-buildings", "energy", "existing-assets"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-003",
+    "title": "Ontology Factories as Foundation for AI Factories",
+    "content": "Before deploying AI, organizations need structured knowledge. Ontology factories create the semantic foundation — mapping entities, relationships, and context — that AI algorithms need to reason effectively. Without ontologies, AI operates on unstructured data and produces unexplainable results. The sequence is: Ontology Factory → Knowledge Graph → AI Factory. This is why SMILE Phase 3 (Collective Intelligence) must precede Phase 5 (Continuous Intelligence).",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["ontology", "AI", "knowledge-graph", "collective-intelligence", "continuous-intelligence"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-004",
+    "title": "Edge-Native Is the Way — Local Control First",
+    "content": "Digital twins should run on the edge with capabilities matching the cloud. Intelligence must be created where data is generated, not shipped to a distant cloud for processing. This reduces latency, improves data sovereignty, enables offline operation, and reduces bandwidth costs. The pattern: local control first, cloud sync second, distributed intelligence always. Edge/hybrid architectures with 5G/6G and network slicing enable this at scale.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["edge", "architecture", "distributed-intelligence", "contextual-intelligence"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-005",
+    "title": "Explainable AI Is Easiest When Anchored in Reality",
+    "content": "The challenge of AI explainability largely disappears when AI decisions are grounded in real-world context. If an AI recommends reducing heating by 15%, and it can point to the specific room temperature data, outdoor conditions, occupancy patterns, and energy pricing that drove the decision — it's explainable. The SMILE AI Journey (Data Contextualization → AI-Ready → AI-Infused → AI-Ingrained → Explainable AI) ensures each step builds on verifiable reality.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["explainable-AI", "methodology", "ai-journey", "trust"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-006",
+    "title": "Actor-Network Theory Applied to Digital Twins",
+    "content": "Bruno Latour's Actor-Network Theory (ANT) proposes that both humans and non-humans are actors in networks. Applied to digital twins: sensors, buildings, algorithms, facility managers, and regulatory frameworks are all equal actors. SMILE uses this lens to ensure implementations consider the full sociotechnological ecosystem — not just the technical components. This prevents the common failure mode of technically excellent twins that nobody uses because organizational and human factors were ignored.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "presentation",
+    "tags": ["theory", "ANT", "ecosystem", "reality-emulation"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-007",
+    "title": "Minimal Viable Twin — Virtual First Validation",
+    "content": "The MVT (Minimal Viable Twin) applies lean methodology to digital twins. Instead of building a comprehensive digital twin upfront, start with the smallest twin that delivers measurable value. Validate hypotheses virtually before physical deployment — try before you buy. This dramatically reduces implementation risk and cost. A successful MVT can be delivered in days to weeks, not months to years.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["MVT", "lean", "virtual-first", "concurrent-engineering"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-008",
+    "title": "Four Layers of Interoperability",
+    "content": "True interoperability requires alignment across four layers: (1) Technical — protocols, APIs, transport (HTTP, MQTT, REST), (2) Semantic — shared meaning through ontologies and metadata registries, (3) Organizational — process alignment and governance, (4) Legal — data sovereignty, GDPR, cross-organizational agreements. Most digital twin implementations only address technical interoperability and wonder why systems don't truly work together. SMILE addresses all four from Phase 1.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "presentation",
+    "tags": ["interoperability", "standards", "methodology", "omni-interoperability"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-009",
+    "title": "Distributed Autonomous Digital Twins at the Edge",
+    "content": "Intelligent digital twins should be distributed and autonomous, running at the edge with capabilities matching the cloud. In maritime, energy, and industrial contexts, self-learning algorithms at the edge enable real-time optimization without round-trips to centralized infrastructure. The pattern involves edge gateways with distributed intelligence, self-learning and self-actuating capabilities, and emulation of reality using standardized data models (IFC/BIM foundations). Edge-native twins reduce latency, improve resilience for remote assets, and enable plug-and-play Digital Twin as a Service deployment.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["edge", "distributed-intelligence", "autonomous", "maritime", "architecture"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-010",
+    "title": "Zoom Out to Zoom In — Context-First Methodology",
+    "content": "The Zoom Out to Zoom In methodology establishes context before diving into implementation details. Start at the planetary or ecosystem level to understand the full operating context, then progressively zoom into the organization, factory, and asset/component levels. This multi-scale approach ensures digital twin implementations consider the full sociotechnological ecosystem — from global supply chains down to individual sensor readings. The methodology uses four nested scopes: Digital Mesh (global supply chain), Operating Context, Organization, and Factory/Asset level. At each level, different interoperability mechanisms and stakeholder considerations apply.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["methodology", "zoom-out-zoom-in", "context-management", "SMILE", "multi-scale"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-011",
+    "title": "SMILE Six-Phase Digital Twin Journey",
+    "content": "The SMILE methodology defines six progressive phases for digital twin implementation: (1) Reality Emulation — creating a shared digital representation of the as-is reality, (2) Concurrent Engineering — virtual-first completion with emulation-based scenarios, (3) Collective Intelligence — invite to innovate, define scope, validate hypotheses, define the Minimal Viable Twin (MVT), (4) Contextual Intelligence — physical sensors, meet initial KPIs, ontology creation, remote enablement, (5) Continuous Intelligence — connected everything, command and control, real-time decisions, predictive analytics, root cause analysis, (6) Perpetual Wisdom — prescriptive maintenance, AI-driven prognostics, universal event pipeline, black swan identification, ecosystem enablement, circular strategies. Each phase builds on the previous, with an AI Journey running in parallel: Data Contextualization, AI-Ready, AI-Infused, AI-Ingrained, and finally Explainable AI.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["SMILE", "methodology", "digital-twin-journey", "six-phases", "reality-emulation"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-012",
+    "title": "Context Management Through Spatial and Temporal Anchoring",
+    "content": "Context implies a set of circumstances surrounding a particular event, situation, or condition — having a starting point is fundamental to establishing context. Spatial and temporal contexts are the universal dimensions shared by people, systems, AI, and organizations. Spatial context refers to the physical location or environment; temporal context refers to the timing or sequence of events. Everything in reality has occupied, occupies, or will occupy an area in space and time. Utilizing spaces as boundary-spanning elements between different actors accelerates knowledge transfer and forms the foundation for interoperability mechanisms. Without a starting point, context becomes vague and undefined because it lacks a frame of reference. The starting point acts as an anchor — it could be a specific entity, event, situation, person, or location.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["context-management", "spatial-anchoring", "temporal", "interoperability", "MIM"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-013",
+    "title": "Omni-Interoperability for Knowledge Transfer",
+    "content": "Omni-interoperability accelerates knowledge transfer between people, systems, and AI. The approach starts with the outcome (not data) and works backwards through the sequence: Outcome/Impact, Action, Insight, Information, Data. It requires alignment across four layers: Legal and Organizational interoperability (process alignment, BPM, process coordination), Semantic interoperability (metadata registries, ontologies, syntactic alignment), and Technical interoperability (HTTP, SMTP over TCP/IP, MQTT, REST). Benefits-driven resiliency initiatives leverage simulation capabilities for seamless transfer of knowledge between actors in a system. Humans, machines, organizations, and entities operate on the same level — where everything is understood between them, irrespectively of whether they are human, machines, or autonomous AI agents.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["omni-interoperability", "knowledge-transfer", "SMILE", "standards", "benefits-driven"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-014",
+    "title": "ANT Applied to Minimal Interoperability Mechanisms",
+    "content": "When integrating Actor-Network Theory (ANT) into context management for Minimal Interoperability Mechanisms (MIM), the focus shifts to understanding how every participant — human, technological, or organizational — contributes to the overall functioning of sociotechnical ecosystems. ANT views entities as interconnected actors that constantly shape and redefine network dynamics. This means designing systems that acknowledge the active role of different actors (sensors, people, institutions) and their interrelationships, influencing how information is collected, shared, and utilized. The approach promotes a holistic and adaptable framework for context management, fostering environments responsive to the needs and influences of all actors involved. By adopting an ANT perspective, context management can address complex real-world challenges recognizing co-creation of value and knowledge within networked interactions of people, technology, and organizations.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["ANT", "MIM", "context-management", "sociotechnological", "ecosystem"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-015",
+    "title": "Sociotechnological Ecosystem Assessment Framework",
+    "content": "In a sociotechnological ecosystem, all actors continuously transfer knowledge within themselves and the world around them. To think outside the box, one must first define the box. The framework involves specifying a starting point in the ecosystem and a boundary box for any focus area. Shining the spotlight within or outside that focus area reveals contextual factors as a dynamic perspective. Assessment dimensions include: Security (physical and digital attack surfaces), Analytics (at any stage, around any actor, in isolation or systems-of-systems), Resources (embodied carbon, net zero strategies, sustainable development), Fair AI (contextual dimensions for equitable AI practices throughout the lifecycle), Space and Time (spatial-temporal understanding as foundation), Privacy (GDPR/personal data in ecosystem context), and Data Flow (specifying where and how data transfers between actors along the impact-action-insight-information-data sequence).",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["assessment", "sociotechnological", "ecosystem", "security", "fair-AI", "sustainability"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-016",
+    "title": "Democratizing Smart Buildings Through Open Interoperable Systems",
+    "content": "Opening up any building, any asset, in any industry for innovation on a global scale requires transitioning from siloed, vendor-locked systems to open, interoperable platforms. Key capabilities include: standardized interoperable data sets, predictive and prescriptive maintenance, IT/OT/IoT interoperability with engineering technology intent, transparent sustainability with measurable impact, standardized tagged APIs to the building, understandability for systems, people, and AI/ML, knowledge transfer between people and generations, local control first with digital twins on the edge, smart grid and smart city inclusion, and plug-and-play installation. This addresses the traditional pain points of siloed data, vendor lock-in, skill-shortage gaps, long implementation times, direct-to-cloud dependencies, and coordination challenges between experts.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["smart-buildings", "open-systems", "interoperability", "democratization", "edge"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-017",
+    "title": "Virtual-First Strategy and Reality Table-Top Exercises",
+    "content": "Organizations should simulate everything in a digital copy of reality prior to any implementation. The virtual-first strategy involves: using 3D+ representations of reality to consolidate information, deploying prototype twins (MVT) before actual digital twins with real-time data, and running reality-focused table-top exercises for multiplayer collaboration. The Extreme Collaboration approach leverages Virtual Reality, Augmented Reality, and Mixed Reality to make better decisions faster — enabling the ability to fold space and time. This applies at every scale from planetary (biome, ecosystem, community, population) down to buildings (rooms, components, software, AI methods, metadata, taxonomies, ontologies). Successful AI projects require good understanding of the as-is state combined with purpose and outcome.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["virtual-first", "XR", "collaboration", "MVT", "simulation", "table-top"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-018",
+    "title": "Dynamic Digital Twins — Lean Go-to-Market Principles",
+    "content": "Dynamic digital twins follow lean startup principles for rapid market entry: customer engagement first, copy-paste scalability assessment and execution, acquiring customer pilots early, pitch deck and go-to-market creation, agile development cycles, and lean principles throughout. The 'dynamic' aspect means twins that continuously evolve through customer feedback loops rather than being designed as static representations. This approach reduces time-to-value from months/years to weeks by focusing on agreed-upon value creation in the shortest amount of time, avoiding silo-based suboptimization that can inflate costs by 5x or more.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["dynamic-twins", "lean", "go-to-market", "agile", "scalability"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  },
+  {
+    "id": "kb-019",
+    "title": "Interoperable Digital Twin Lifecycle Templates",
+    "content": "Digital twin lifecycle templates enable organizations to absorb the past, simulate the future, and transcend the now. The template spans physical and virtual spaces across time: the Physical Twin (as-is) with physical sensors exists in the present, while the Virtual Digital Twin (digital to-be) with virtual sensors enables simulation into the future. A Digital Mesh or Data Fabric provides the planetary foundation connecting past, present, and future states. The lifecycle template is interoperable by design, meaning it can be applied across industries — from maritime to healthcare to energy — with the same underlying structure adapted to domain-specific ontologies and standards. The key insight is that past and future converge in the virtual space through simulation, enabling contextual decision-making that transcends temporal limitations.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "onedrive",
+    "tags": ["lifecycle", "digital-twin-template", "simulation", "data-fabric", "interoperability"],
+    "created_at": "2026-03-28",
+    "anonymized": true
+  }
+]

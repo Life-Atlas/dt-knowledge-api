@@ -1,0 +1,334 @@
+{
+  "methodology": {
+    "name": "S.M.I.L.E.",
+    "fullName": "Sustainable Methodology for Impact Lifecycle Enablement",
+    "tagline": "Benefits-driven digital twin implementation methodology",
+    "principle": "Impact first, data last. Start with the outcome, not the data. Outcome → Action → Insight → Information → Data.",
+    "impactSequence": ["Outcome/Impact", "Action", "Insight", "Information", "Data"],
+    "author": "Nicolas Waern, WINNIIO / LifeAtlas",
+    "philosophy": "Absorb the past, simulate the future, to transcend the now. Companies and cities can simulate the future — but only if they start with impact, not data."
+  },
+  "phases": [
+    {
+      "id": "reality-emulation",
+      "name": "Reality Emulation",
+      "order": 1,
+      "description": "Create a shared reality canvas — establishing where, when, and who. The foundation is a real-world planetary foundation in 3D+, understandable by all. Everything in reality has had, has, or will occupy an area in space and time.",
+      "activities": [
+        "Job-that-is-done theory analysis",
+        "Identify where and when on the planet",
+        "Stakeholder mapping (who needs to be involved)",
+        "Create Reality Canvas",
+        "Adopt Virtual First Mindset",
+        "Record Everything",
+        "Spatial and temporal context establishment",
+        "PESTELED analysis",
+        "Start/scale anywhere approach",
+        "5 Whys root cause analysis"
+      ],
+      "deliverables": [
+        "Reality Canvas (3D+ spatial-temporal foundation)",
+        "Stakeholder map",
+        "Operating context definition",
+        "Ecosystem boundary definition"
+      ],
+      "duration": "Days to Weeks",
+      "keyQuestion": "In order to think outside the box, one has to define the box first. What is the starting point and boundary of your sociotechnological ecosystem?"
+    },
+    {
+      "id": "concurrent-engineering",
+      "name": "Concurrent Engineering",
+      "order": 2,
+      "description": "Define the scope (as-is to to-be), invite stakeholders to innovate together, validate hypotheses virtually before committing resources. Virtual Minimal Viable Twinning (MVT) — test ideas in simulation before reality.",
+      "activities": [
+        "Invite to innovate",
+        "Define Scope: As-is to To-be",
+        "Virtual User Interaction",
+        "Validate Hypothesis",
+        "Establish Collective Truth",
+        "Define the MVT (Minimal Viable Twin)",
+        "MVT feedback loops",
+        "Scenario planning",
+        "Reality table-top exercises",
+        "Leverage Open Source",
+        "Emulation-based scenarios"
+      ],
+      "deliverables": [
+        "Minimal Viable Twin (MVT) definition",
+        "As-is / To-be scope document",
+        "Validated hypotheses",
+        "Virtual first completion plan"
+      ],
+      "duration": "Weeks to Months",
+      "keyQuestion": "What does the Minimal Viable Twin look like, and how do we validate it virtually before investing in physical implementation?"
+    },
+    {
+      "id": "collective-intelligence",
+      "name": "Collective Intelligence",
+      "order": 3,
+      "description": "Connect physical sensors, meet initial KPIs, create ontologies for shared understanding. The ontology factory becomes the foundation for AI factories. Knowledge Graph ontology foundation — creating relationships between fragmented realities.",
+      "activities": [
+        "Physical sensor deployment",
+        "Meet initial KPIs",
+        "Confirm operational metrics and business value",
+        "Ontology creation",
+        "Remote enablement",
+        "Align with existing data and industry standards (ISO)",
+        "Define KPIs and success factors",
+        "Organizational landscape mapping",
+        "Security and data strategy",
+        "Risk and optimization assessment",
+        "Create operational MVT"
+      ],
+      "deliverables": [
+        "Operational MVT with physical sensors",
+        "Ontology Factory",
+        "KPI confirmation report",
+        "Data fabric integration"
+      ],
+      "duration": "Months",
+      "keyQuestion": "How do we create ontology factories as the foundation for AI factories, connecting fragmented realities into a knowledge graph?"
+    },
+    {
+      "id": "contextual-intelligence",
+      "name": "Contextual Intelligence",
+      "order": 4,
+      "description": "Connected everything — command & control, real-time decisions, uptime optimization, predictive analytics, root cause analysis. The digital twin becomes operationally aware of its context.",
+      "activities": [
+        "Connected Everything deployment",
+        "Command & Control center",
+        "Real-time decision making",
+        "Uptime optimization",
+        "Predictive analytics",
+        "Root cause analysis",
+        "Pace Layering alignment IT/OT",
+        "Interoperability alignment across layers"
+      ],
+      "deliverables": [
+        "Operational Digital Twin (as-is)",
+        "Real-time dashboard",
+        "Predictive maintenance system",
+        "Connected ecosystem"
+      ],
+      "duration": "Months to Years",
+      "keyQuestion": "How do we enable real-time contextual awareness across the entire ecosystem — understanding not just what is happening, but why?"
+    },
+    {
+      "id": "continuous-intelligence",
+      "name": "Continuous Intelligence",
+      "order": 5,
+      "description": "Leverage accumulated knowledge — prescriptive maintenance, AI-driven prognostics, universal event pipelines. Simulate everything. Identify black swans before they strike.",
+      "activities": [
+        "Prescriptive maintenance",
+        "AI-driven prognostics",
+        "Universal event pipeline",
+        "Black Swan identification",
+        "Simulate Everything",
+        "AI Factory deployment (algorithms)",
+        "Industrial orchestration",
+        "Distributed intelligence",
+        "Virtual sensors",
+        "Lifecycle analysis and consolidation"
+      ],
+      "deliverables": [
+        "AI Factory (algorithms)",
+        "Simulation Digital Twin (to-be)",
+        "Event pipeline",
+        "Distributed intelligence architecture"
+      ],
+      "duration": "Years",
+      "keyQuestion": "How do we leverage explainable AI factories for exponential scale, scope, and learning — moving from reactive to prescriptive?"
+    },
+    {
+      "id": "perpetual-wisdom",
+      "name": "Perpetual Wisdom",
+      "order": 6,
+      "description": "Share impact across the planet. Up-cycle exploration, ecosystem enablement, circular strategies, open-source contribution. Knowledge becomes perpetual — transferable across generations, industries, and geographies.",
+      "activities": [
+        "Ecosystem enablement",
+        "Share impact across the planet",
+        "SCM optimization",
+        "Open-source contribution",
+        "Circular strategies",
+        "Up-cycle exploration",
+        "Phoenix strategies (rebirth/renewal)",
+        "Cross-industry knowledge transfer",
+        "Interoperable operation for future foundations"
+      ],
+      "deliverables": [
+        "Perpetual knowledge base",
+        "Open-source contributions",
+        "Cross-industry templates",
+        "Circular economy integration"
+      ],
+      "duration": "Perpetual (decades+)",
+      "keyQuestion": "How do we ensure that knowledge created today is transferable, reusable, and contributes to planetary-scale impact?"
+    }
+  ],
+  "perspectives": [
+    {
+      "id": "from-people",
+      "name": "From People",
+      "description": "Organization agnostic. Focus on concurrent engineering, collective intelligence, stakeholder mapping, and digital twin enablement. People are actors in sociotechnological ecosystems continuously transferring knowledge.",
+      "inputs": [
+        "Stakeholder mapping",
+        "Organization agnostic approach",
+        "Concurrent engineering",
+        "Collective intelligence",
+        "Digital twin enablement",
+        "Skills and roles assessment",
+        "Human-machine interaction (HMI)"
+      ]
+    },
+    {
+      "id": "from-systems",
+      "name": "From Systems",
+      "description": "Planetary scope. Focus on operating context, standards identification, ontology alignment, and metadata mastery. Systems must be interoperable across technical, semantic, and organizational layers.",
+      "inputs": [
+        "Planetary scope assessment",
+        "Operating context definition",
+        "Standards identification (ISO, IFC, CityGML)",
+        "Ontology alignment",
+        "Metadata mastery",
+        "BIM/CIM/GIS integration",
+        "Data fabric architecture"
+      ]
+    },
+    {
+      "id": "from-planet",
+      "name": "From Planet",
+      "description": "GIS, CIM, BIM, satellite data, reality canvas. The planetary foundation — understanding spatial and temporal context at global scale. Everything in reality occupies space and time.",
+      "inputs": [
+        "GIS data",
+        "CIM (City Information Modeling)",
+        "BIM (Building Information Modeling)",
+        "Satellite data",
+        "Reality Canvas creation",
+        "Spatial-temporal context",
+        "Environmental and sustainability data"
+      ]
+    }
+  ],
+  "aiJourney": [
+    {
+      "id": "data-contextualization",
+      "name": "Data Contextualization",
+      "order": 1,
+      "description": "Raw data is contextualized — understanding what it means in its spatial, temporal, and organizational context.",
+      "decisionMaking": "Human Decision Making"
+    },
+    {
+      "id": "ai-ready",
+      "name": "AI-Ready",
+      "order": 2,
+      "description": "Data is structured, tagged, and accessible for AI consumption. Ontologies and metadata are in place.",
+      "decisionMaking": "Human Decision Making with AI support"
+    },
+    {
+      "id": "ai-infused",
+      "name": "AI-Infused",
+      "order": 3,
+      "description": "AI augments human decision-making with predictions, recommendations, and pattern recognition.",
+      "decisionMaking": "AI-augmented Human Decision Making"
+    },
+    {
+      "id": "ai-ingrained",
+      "name": "AI-Ingrained",
+      "order": 4,
+      "description": "AI is embedded in operations — autonomous decisions within defined boundaries, continuous learning.",
+      "decisionMaking": "Autonomous AI with Human oversight"
+    },
+    {
+      "id": "explainable-ai",
+      "name": "Explainable AI Decision Making",
+      "order": 5,
+      "description": "Full autonomous decision-making that is explainable, auditable, and anchored in reality. Explainability is easiest when anchored in real data and real outcomes.",
+      "decisionMaking": "Explainable AI Decision Making"
+    }
+  ],
+  "keyConcepts": [
+    {
+      "id": "ant",
+      "name": "Actor-Network Theory (ANT)",
+      "description": "Introduced by Bruno Latour. Both humans and non-humans (technologies, objects) are actors in networks that shape outcomes. Social, technical, and natural worlds are interconnected. In SMILE, this means every participant — human, technological, or organizational — contributes to the ecosystem.",
+      "relatedPhases": ["reality-emulation", "collective-intelligence"],
+      "tags": ["theory", "ecosystem", "interoperability"]
+    },
+    {
+      "id": "mims",
+      "name": "Minimal Interoperability Mechanisms (MIMs)",
+      "description": "Context management framework for sociotechnological ecosystems. Designing systems that acknowledge the active role of different actors (sensors, people, institutions) and their interrelationships. Facilitates seamless data integration and collaboration across domains.",
+      "relatedPhases": ["collective-intelligence", "contextual-intelligence"],
+      "tags": ["interoperability", "standards", "smart-cities"]
+    },
+    {
+      "id": "ontology-factories",
+      "name": "Ontology Factories",
+      "description": "The foundation for AI factories. Creating structured knowledge representations (ontologies) that map relationships between fragmented realities. Knowledge Graph ontology foundations enable AI systems to reason about the real world.",
+      "relatedPhases": ["collective-intelligence", "continuous-intelligence"],
+      "tags": ["ontology", "knowledge-graph", "AI"]
+    },
+    {
+      "id": "mvt",
+      "name": "Minimal Viable Twin (MVT)",
+      "description": "The digital twin equivalent of MVP. Start with the smallest viable twin that delivers value, then iterate. Virtual first — validate in simulation before physical deployment.",
+      "relatedPhases": ["concurrent-engineering"],
+      "tags": ["methodology", "lean", "virtual-first"]
+    },
+    {
+      "id": "virtual-first",
+      "name": "Virtual First Strategy",
+      "description": "Test everything in simulation before reality. Assess initiatives in a simulated environment to reduce risk. Try before you buy. 100% virtual first completion before physical deployment.",
+      "relatedPhases": ["concurrent-engineering", "continuous-intelligence"],
+      "tags": ["strategy", "simulation", "risk-reduction"]
+    },
+    {
+      "id": "reality-canvas",
+      "name": "Reality Canvas",
+      "description": "A real-world planetary foundation in 3D+, understandable by all. The spatial-temporal anchor for all digital twin work. Establishes where, when, and the boundary of the ecosystem.",
+      "relatedPhases": ["reality-emulation"],
+      "tags": ["spatial", "foundation", "3D"]
+    },
+    {
+      "id": "omni-interoperability",
+      "name": "Omni-Interoperability",
+      "description": "Accelerating knowledge transfer between people, systems, and AI across four layers: legal/organizational, semantic, syntactic, and technical. Where everything is understood between actors, irrespective of whether they are human, machines, or autonomous AI agents.",
+      "relatedPhases": ["collective-intelligence", "contextual-intelligence", "continuous-intelligence"],
+      "tags": ["interoperability", "knowledge-transfer", "standards"]
+    },
+    {
+      "id": "edge-native",
+      "name": "Edge-Native Intelligence",
+      "description": "Edge capabilities same as the cloud. Intelligence should be created where data is generated — distributed intelligence via edge/hybrid, 5G/6G, network slicing. Local control first — digital twins on the edge.",
+      "relatedPhases": ["contextual-intelligence", "continuous-intelligence"],
+      "tags": ["edge", "distributed", "architecture"]
+    },
+    {
+      "id": "phoenix-strategies",
+      "name": "Phoenix Strategies",
+      "description": "Perpetual rebirth and renewal. Knowledge and systems designed to be decomposable, reusable, and recyclable. When one system reaches end of life, its knowledge feeds the next generation.",
+      "relatedPhases": ["perpetual-wisdom"],
+      "tags": ["sustainability", "lifecycle", "renewal"]
+    }
+  ],
+  "interoperabilityLayers": [
+    {
+      "id": "legal-organizational",
+      "name": "Legal & Organizational Interoperability",
+      "description": "Organization & process alignment. Legal frameworks, governance, data sovereignty, GDPR/personal data dimensions.",
+      "examples": ["BPM process coordination", "Data governance frameworks", "GDPR compliance", "Cross-organizational agreements"]
+    },
+    {
+      "id": "semantic",
+      "name": "Semantic Interoperability",
+      "description": "Semantic and syntactic alignment. Shared meaning across systems and actors through metadata registries and ontologies.",
+      "examples": ["Metadata registries", "Ontologies", "Taxonomies", "Shared vocabularies", "Haystack tagging"]
+    },
+    {
+      "id": "technical",
+      "name": "Technical Interoperability",
+      "description": "Syntax, interaction, and transport. The technical protocols and standards enabling data exchange.",
+      "examples": ["HTTP/SMTP over TCP/IP", "MQTT", "REST APIs", "Event streaming", "5G/6G connectivity"]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "cs-001",
+    "title": "Smart Heating for Municipal Schools — Self-Learning Digital Twins",
+    "industry": "Smart Buildings / Education / Energy",
+    "challenge": "Municipal buildings using mechanical temperature control with district heating. High energy consumption and CO2 emissions. Buildings ranging from kindergartens to large schools (315-2985 sqm, 8-40 rooms, 13-151 radiators). Need to reduce emissions while maintaining comfort in educational environments.",
+    "approach": "Applied SMILE methodology: Phase 1 (Reality Emulation) mapped the physical buildings, heating systems, and stakeholder ecosystem. Phase 2 (Concurrent Engineering) designed a wireless, self-learning, platform-independent control system. The system optimizes heat supply from individual radiator → in-house system → energy supplier → energy producer, with the lowest possible CO2 emissions.",
+    "smilePhases": ["reality-emulation", "concurrent-engineering", "collective-intelligence", "contextual-intelligence"],
+    "outcome": "Wireless, self-learning, platform-independent, open (software, API, hardware) control monitoring system deployed across multiple school buildings. System continuously optimizes based on context — room-level, building-level, and energy grid-level.",
+    "summary": "Applied SMILE to create self-learning smart heating digital twins for municipal schools, optimizing energy from radiator to grid level.",
+    "detailed": "Full deployment across 3 school buildings with 231 radiators total. The system uses wireless sensors, open APIs, and self-learning algorithms to optimize district heating consumption. Key insight: mechanical temperature control was replaced with AI-driven contextual control that considers room occupancy, weather forecasts, building thermal mass, and energy grid conditions simultaneously. The platform-independent architecture ensures zero vendor lock-in.",
+    "visibility": "public",
+    "tier": "free",
+    "anonymized": true
+  },
+  {
+    "id": "cs-002",
+    "title": "National Digital Twin Strategy — Cross-Industry Interoperability",
+    "industry": "Government / Smart Cities / Infrastructure",
+    "challenge": "A Nordic country needed a national digital twin strategy that spans across industries — construction, real estate, manufacturing, mobility — while maintaining data sovereignty and enabling cross-sector knowledge transfer.",
+    "approach": "Applied SMILE from the planetary perspective. Phase 1: Reality Canvas at national scale using GIS/BIM/CIM. Phase 2: Defined MVT for cross-industry interoperability. Phase 3: Ontology alignment across sectors using MIMs (Minimal Interoperability Mechanisms). Phase 4: Connected existing siloed systems through omni-interoperability layers.",
+    "smilePhases": ["reality-emulation", "concurrent-engineering", "collective-intelligence", "contextual-intelligence"],
+    "outcome": "National digital twin strategy framework enabling cross-industry data sharing while preserving data sovereignty. MIMs-based interoperability mechanisms adopted across government and industry stakeholders.",
+    "summary": "Developed a national digital twin strategy using SMILE methodology with MIMs-based interoperability across government and industry.",
+    "detailed": "The strategy established interoperability mechanisms across four layers (technical, semantic, organizational, legal) enabling multiple industries to share contextual data without compromising sovereignty. Key innovation: using Actor-Network Theory to treat all participants — government agencies, private companies, AI systems, infrastructure sensors — as equal actors in a national sociotechnological ecosystem.",
+    "visibility": "public",
+    "tier": "paid",
+    "anonymized": true
+  }
+]
