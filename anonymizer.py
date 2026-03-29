@@ -2,11 +2,12 @@
 Privacy/Anonymization engine for the Digital Twin Knowledge API.
 Strips identifiable information from content before public exposure.
 
-Ported from LPI MCP Server (TypeScript) with extensions.
+Thread-safe: uses a lock around global state mutations.
 """
 import re
 import json
 import os
+import threading
 
 COMPANY_LABELS = [
     "Company A", "Company B", "Company C", "Company D",
@@ -18,6 +19,7 @@ PERSON_LABELS = [
     "Client Lead", "Project Sponsor", "Technical Lead",
 ]
 
+_lock = threading.Lock()
 _company_map: dict[str, str] = {}
 _person_map: dict[str, str] = {}
 _company_counter = 0
@@ -36,20 +38,22 @@ BLOCKED_PEOPLE = BLOCKLIST.get("people", [])
 
 def anonymize_company(name: str) -> str:
     global _company_counter
-    if name not in _company_map:
-        label = COMPANY_LABELS[_company_counter % len(COMPANY_LABELS)]
-        _company_map[name] = label
-        _company_counter += 1
-    return _company_map[name]
+    with _lock:
+        if name not in _company_map:
+            label = COMPANY_LABELS[_company_counter % len(COMPANY_LABELS)]
+            _company_map[name] = label
+            _company_counter += 1
+        return _company_map[name]
 
 
 def anonymize_person(name: str) -> str:
     global _person_counter
-    if name not in _person_map:
-        label = PERSON_LABELS[_person_counter % len(PERSON_LABELS)]
-        _person_map[name] = label
-        _person_counter += 1
-    return _person_map[name]
+    with _lock:
+        if name not in _person_map:
+            label = PERSON_LABELS[_person_counter % len(PERSON_LABELS)]
+            _person_map[name] = label
+            _person_counter += 1
+        return _person_map[name]
 
 
 def anonymize_text(text: str, extra_companies: list[str] | None = None, extra_people: list[str] | None = None) -> str:
@@ -70,7 +74,7 @@ def anonymize_text(text: str, extra_companies: list[str] | None = None, extra_pe
             replacement = anonymize_person(person)
             result = re.sub(re.escape(person), replacement, result, flags=re.IGNORECASE)
 
-    # Anonymize precise percentages → approximate
+    # Anonymize precise percentages -> approximate
     result = re.sub(
         r'(\d+\.\d+)\s*%',
         lambda m: f"~{round(float(m.group(1)) / 5) * 5}%",
@@ -99,7 +103,8 @@ def anonymize_text(text: str, extra_companies: list[str] | None = None, extra_pe
 
 def reset():
     global _company_map, _person_map, _company_counter, _person_counter
-    _company_map = {}
-    _person_map = {}
-    _company_counter = 0
-    _person_counter = 0
+    with _lock:
+        _company_map = {}
+        _person_map = {}
+        _company_counter = 0
+        _person_counter = 0
