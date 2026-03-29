@@ -218,5 +218,60 @@
     "tags": ["lifecycle", "digital-twin-template", "simulation", "data-fabric", "interoperability"],
     "created_at": "2026-03-28",
     "anonymized": true
+  },
+  {
+    "id": "kb-021",
+    "title": "Reality Is the Persistent Layer",
+    "content": "Reality is the one thing everyone shares — across domains, across systems, across time. People change, systems change, technology changes, but reality persists. This makes reality the ultimate boundary-spanning element: a shared context for AI, people, and systems alike. Without a visual representation of reality, we perpetuate siloed ways of working. Every domain expert understands their own piece of reality — the building manager knows the building, the energy company knows the grid, the municipality knows the regulations. A visual digital twin of reality gives them a shared language. This is why visual representation is foundational, not optional. It passes the test of time because reality itself is persistent.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["reality", "visual", "persistent-layer", "boundary-spanning", "foundation", "philosophy"],
+    "created_at": "2026-03-29",
+    "anonymized": true
+  },
+  {
+    "id": "kb-022",
+    "title": "Five Common Digital Twin Mistakes",
+    "content": "The five most common mistakes in digital twin implementations: (1) Starting with data instead of impact — collecting everything before knowing what outcome you want. (2) Skipping reality emulation — jumping to analytics without first creating a shared representation of what exists. (3) Building for one stakeholder — creating a technical twin that only engineers understand, instead of a shared reality for all actors. (4) Vendor lock-in by design — choosing platforms that trap your data and prevent interoperability. (5) Treating it as a one-time project — digital twins are living systems that must continuously evolve through feedback loops. The SMILE methodology addresses each of these by starting with outcome, building on shared reality, designing for all stakeholders, ensuring openness, and planning for perpetual evolution.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["common-mistakes", "getting-started", "beginner", "strategy", "pitfalls"],
+    "created_at": "2026-03-29",
+    "anonymized": true
+  },
+  {
+    "id": "kb-023",
+    "title": "The AI Journey — From Data to Explainability",
+    "content": "The SMILE AI Journey defines five progressive stages of AI maturity within digital twins: (1) Data Contextualization — structuring raw data into meaningful context using ontologies and metadata. (2) AI-Ready — data quality, governance, and pipelines established for machine learning. (3) AI-Infused — machine learning models deployed for pattern recognition, anomaly detection, and prediction. (4) AI-Ingrained — AI becomes integral to operations, with automated decision-making loops. (5) Explainable AI — all AI decisions can be traced back to real-world data and context, making them transparent and auditable. The key insight: explainability is easiest when AI is anchored in reality. If an AI recommendation can point to the specific real-world conditions that drove it, it is inherently explainable.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["AI", "ai-journey", "explainable-AI", "methodology", "maturity"],
+    "created_at": "2026-03-29",
+    "anonymized": true
+  },
+  {
+    "id": "kb-024",
+    "title": "Biological Digital Twins — From Buildings to Bodies",
+    "content": "The same sense-model-predict-intervene pattern that works for buildings applies to living beings. A biological digital twin integrates data from wearable sensors (heart rate, sleep, activity, blood glucose), medical records, genomics, and environmental context to create a continuously evolving model of a person's health. The key parallel: just as a building digital twin optimizes energy consumption by understanding room-level context, a personal digital twin optimizes wellness by understanding individual-level context. Edge-native processing ensures health data stays private — processed locally on the user's device, with only anonymized insights shared when needed. This approach is WHO-grounded and evidence-based, never generic.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["biological", "personal", "health", "wellness", "wearables", "edge", "privacy"],
+    "created_at": "2026-03-29",
+    "anonymized": true
+  },
+  {
+    "id": "kb-025",
+    "title": "Workshop: Build Your First Minimal Viable Twin",
+    "content": "A 2-hour hands-on workshop designed to take participants from concept to their first Minimal Viable Twin (MVT). The workshop follows the SMILE methodology: (1) Map your reality — identify the physical asset, system, or process you want to twin. (2) Define the outcome — what decision do you want to make better? (3) Trace backwards — what insights, information, and data do you need? (4) Build the MVT — the simplest twin that delivers measurable value. (5) Validate — does it actually improve the decision? Participants leave with a concrete implementation roadmap and a prototype twin concept tailored to their specific use case. The workshop is domain-agnostic — it works for buildings, manufacturing, healthcare, cities, and beyond.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["workshop", "MVT", "getting-started", "hands-on", "implementation", "beginner"],
+    "created_at": "2026-03-29",
+    "anonymized": true
   }
 ]
