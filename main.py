@@ -11,6 +11,7 @@ from chat import generate_response
 from resources import get_resources
 from spin import advance_spin, SPIN_PHASES
 from ratelimit import check_rate_limit
+from analytics import track_event, track_spin_completion, get_stats
 
 ALLOWED_ORIGINS = [
     "https://life-atlas.github.io",
@@ -92,6 +93,7 @@ async def chat(request: Request, req: ChatRequest):
     check_rate_limit(request)
     # Handle SPIN questionnaire flow
     if req.spin_action == "start":
+        track_event("spin_start")
         spin_result = advance_spin(None, None)
         return ChatResponse(
             answer=spin_result["question"],
@@ -108,6 +110,7 @@ async def chat(request: Request, req: ChatRequest):
 
         spin_result = advance_spin(req.spin_state, req.spin_value)
         if spin_result["type"] == "spin_complete":
+            track_spin_completion(spin_result.get("answers", {}), spin_result.get("product", {}).get("id", ""))
             summary = spin_result.get("summary", "Based on your answers, here's what I'd recommend:")
             return ChatResponse(
                 answer=summary,
@@ -124,8 +127,17 @@ async def chat(request: Request, req: ChatRequest):
     if not req.question.strip():
         raise HTTPException(status_code=422, detail="Question cannot be empty")
 
+    track_event("chat_message")
     result = await generate_response(req.question, req.message_count)
+    if result.get("cta"):
+        track_event("cta_shown")
     return ChatResponse(**result)
+
+
+@app.get("/api/analytics")
+def analytics():
+    """Simple analytics dashboard — ephemeral, resets on cold start."""
+    return get_stats()
 
 
 @app.get("/api/resources")

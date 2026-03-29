@@ -213,32 +213,36 @@ async def generate_response(query: str, message_count: int = 0) -> dict:
 
 
 async def _call_claude(query: str, context: str) -> str:
-    async with httpx.AsyncClient(timeout=30.0) as client:
-        response = await client.post(
-            "https://api.anthropic.com/v1/messages",
-            headers={
-                "x-api-key": ANTHROPIC_API_KEY,
-                "anthropic-version": "2023-06-01",
-                "content-type": "application/json",
-            },
-            json={
-                "model": "claude-haiku-4-5-20251001",
-                "max_tokens": 1024,
-                "system": SYSTEM_PROMPT,
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": f"Context from knowledge base:\n{context}\n\nUser question: {query}",
-                    }
-                ],
-            },
-        )
+    """Call Claude Haiku with tight timeout to fit Vercel's 10s limit."""
+    try:
+        async with httpx.AsyncClient(timeout=8.0) as client:
+            response = await client.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={
+                    "x-api-key": ANTHROPIC_API_KEY,
+                    "anthropic-version": "2023-06-01",
+                    "content-type": "application/json",
+                },
+                json={
+                    "model": "claude-haiku-4-5-20251001",
+                    "max_tokens": 512,
+                    "system": SYSTEM_PROMPT,
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": f"Context from knowledge base:\n{context}\n\nUser question: {query}",
+                        }
+                    ],
+                },
+            )
 
-        if response.status_code != 200:
-            # Fallback to smart template if Claude fails
-            results = store.search(query, limit=5)
-            intents = detect_intent(query)
-            return _build_smart_response(query, results, intents)
+            if response.status_code != 200:
+                raise Exception(f"API returned {response.status_code}")
 
-        data = response.json()
-        return data["content"][0]["text"]
+            data = response.json()
+            return data["content"][0]["text"]
+    except Exception:
+        # Fallback to smart template if Claude fails or times out
+        results = store.search(query, limit=5)
+        intents = detect_intent(query)
+        return _build_smart_response(query, results, intents)
