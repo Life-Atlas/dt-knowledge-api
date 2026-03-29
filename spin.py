@@ -116,7 +116,7 @@ SPIN_PHASES = [
         "question": "Almost there. Let's talk about what you actually want.\n\nIf you could have one outcome from working with digital twins, what would it be?",
         "options": [
             {"value": "reduce_cost", "label": "Reduce operational costs measurably"},
-            {"value": "better_decisions", "label": "Make faster, data-driven decisions"},
+            {"value": "better_decisions", "label": "Make faster, outcome-driven decisions"},
             {"value": "sustainability", "label": "Meet sustainability or emissions targets"},
             {"value": "new_revenue", "label": "Create new revenue streams or business models"},
             {"value": "understand", "label": "Simply understand what digital twins could do for us"},
