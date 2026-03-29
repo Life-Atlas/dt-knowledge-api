@@ -6,12 +6,23 @@ Stripe Payment Links are created in the Stripe Dashboard — we just store the U
 CALENDLY_URL = "https://calendly.com/futurecreation"
 
 PRODUCTS = {
+    "strategy": {
+        "id": "strategy",
+        "name": "1:1 Strategy Session",
+        "description": "45-minute deep dive into your as-is situation with a readiness assessment. You receive a personalised strategy document with concrete next steps after the session.",
+        "price": "EUR 500",
+        "price_note": "EUR 500 discount when combined with a workshop booking",
+        "link_type": "calendly",
+        "url": CALENDLY_URL,  # Stripe link TBD
+        "cta_text": "Book Strategy Session",
+        "icon": "strategy",
+    },
     "workshop": {
         "id": "workshop",
         "name": "2-Hour Digital Twin Workshop",
         "description": "Hands-on workshop tailored to your situation. We map your reality, define outcomes, and build your first Minimal Viable Twin strategy together.",
         "price": "EUR 2,000",
-        "price_note": "Flat rate, up to 10 participants",
+        "price_note": "Flat rate, up to 10 participants. Includes EUR 500 discount on strategy session.",
         "link_type": "stripe",
         "url": "https://buy.stripe.com/28EbJ0gHP77rdjO1QVejK00",
         "cta_text": "Book Workshop",
@@ -28,17 +39,19 @@ PRODUCTS = {
         "cta_text": "Book Keynote",
         "icon": "lecture",
     },
-    "strategy": {
-        "id": "strategy",
-        "name": "1:1 Strategy Session",
-        "description": "Free initial session to explore your digital twin challenges. Get personalised guidance on where to start and how to avoid common pitfalls.",
-        "price": "Free",
-        "price_note": "30 min, no commitment",
-        "link_type": "calendly",
-        "url": CALENDLY_URL,
-        "cta_text": "Book Free Session",
-        "icon": "strategy",
-    },
+}
+
+# The free AI assessment in the chat widget leads users to these products
+ASSESSMENT_PRODUCT = {
+    "id": "assessment",
+    "name": "Free AI Strategy Assessment",
+    "description": "5-10 minute AI-powered assessment. Answer a few questions about your situation and get a personalised readiness report with recommendations.",
+    "price": "Free",
+    "price_note": "Powered by the SMILE methodology",
+    "link_type": "chat",
+    "url": None,
+    "cta_text": "Start Free Assessment",
+    "icon": "assessment",
 }
 
 
@@ -49,7 +62,8 @@ def recommend_product(answers: dict) -> dict:
     Logic:
     - Large org + strategic need → lecture (inspire leadership)
     - Specific project + implementation need → workshop (hands-on)
-    - Exploring / early stage / individual → strategy session (free)
+    - Mid-stage / needs clarity → strategy session (paid 1:1)
+    - Just exploring → strategy session (entry point)
     """
     situation = answers.get("situation", "")
     need = answers.get("need", "")
@@ -62,5 +76,5 @@ def recommend_product(answers: dict) -> dict:
     if need in ("build_mvt", "implementation_plan"):
         return PRODUCTS["workshop"]
 
-    # Strategy: exploring, early stage, or individual
+    # Strategy session: everyone else (exploring, needs clarity, individual)
     return PRODUCTS["strategy"]

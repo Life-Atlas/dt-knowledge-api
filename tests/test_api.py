@@ -101,8 +101,8 @@ def test_spin_answer():
     })
     assert r.status_code == 200
     data = r.json()
-    assert data["spin"]["phase"] == "problem"
-    assert data["spin"]["answers"]["situation"] == "enterprise"
+    assert data["spin"]["phase"] == "situation"  # Still in situation phase (s2)
+    assert data["spin"]["answers"]["s1_org_type"] == "enterprise"
 
 
 def test_spin_invalid_value():
@@ -120,8 +120,14 @@ def test_spin_full_flow():
     r = client.post("/api/chat", json={"question": "", "spin_action": "start"})
     state = r.json()["spin"]
 
-    # Answer all 4 phases
-    for value in ["startup", "siloed_data", "missed_opportunity", "implementation_plan"]:
+    # Answer all 9 phases
+    answers = [
+        "startup", "manufacturing", "pilot",       # situation (s1, s2, s3)
+        "slow_decisions", "partial",                # problem (p1, p2)
+        "missed_opportunity", "leadership",         # implication (i1, i2)
+        "new_revenue", "implementation_plan",       # need (n1, n2)
+    ]
+    for value in answers:
         r = client.post("/api/chat", json={
             "question": "",
             "spin_action": "answer",
@@ -134,6 +140,8 @@ def test_spin_full_flow():
     assert state["type"] == "spin_complete"
     assert "product" in state
     assert state["product"]["id"] == "workshop"
+    # Summary should be in the answer text
+    assert "**" in r.json()["answer"]  # Contains markdown formatting
 
 
 # --- SMILE ---

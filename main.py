@@ -108,8 +108,9 @@ async def chat(request: Request, req: ChatRequest):
 
         spin_result = advance_spin(req.spin_state, req.spin_value)
         if spin_result["type"] == "spin_complete":
+            summary = spin_result.get("summary", "Based on your answers, here's what I'd recommend:")
             return ChatResponse(
-                answer="Based on your answers, here's what I'd recommend:",
+                answer=summary,
                 sources=[],
                 spin=spin_result,
             )
