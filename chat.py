@@ -237,12 +237,14 @@ async def _call_claude(query: str, context: str) -> str:
             )
 
             if response.status_code != 200:
-                raise Exception(f"API returned {response.status_code}")
+                raise Exception(f"API returned {response.status_code}: {response.text[:200]}")
 
             data = response.json()
             return data["content"][0]["text"]
-    except Exception:
+    except Exception as e:
         # Fallback to smart template if Claude fails or times out
+        import logging
+        logging.warning(f"Claude Haiku failed: {e}")
         results = store.search(query, limit=5)
         intents = detect_intent(query)
         return _build_smart_response(query, results, intents)

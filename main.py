@@ -60,11 +60,13 @@ class SearchResult(BaseModel):
 
 @app.get("/api/health")
 def health():
+    import os
     return {
         "status": "ok",
         "knowledge_entries": len(store.entries),
         "case_studies": len(store.case_studies),
         "smile_phases": len(store.smile.get("phases", [])),
+        "ai_enabled": bool(os.getenv("ANTHROPIC_API_KEY", "")),
     }
 
 
