@@ -9,6 +9,7 @@ from knowledge import store
 from anonymizer import anonymize_text
 from chat import generate_response
 from resources import get_resources
+from spin import advance_spin
 
 app = FastAPI(
     title="Digital Twin Knowledge API",
@@ -28,12 +29,16 @@ app.add_middleware(
 class ChatRequest(BaseModel):
     question: str
     message_count: int = 0
+    spin_state: dict | None = None
+    spin_action: str | None = None  # "start", "answer", "skip"
+    spin_value: str | None = None   # selected option value
 
 
 class ChatResponse(BaseModel):
     answer: str
     sources: list[dict]
     cta: dict | None = None
+    spin: dict | None = None  # SPIN questionnaire state
 
 
 class SearchResult(BaseModel):
@@ -75,6 +80,29 @@ def search(q: str = Query(..., min_length=1), limit: int = Query(5, ge=1, le=20)
 
 @app.post("/api/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest):
+    # Handle SPIN questionnaire flow
+    if req.spin_action == "start":
+        spin_result = advance_spin(None, None)
+        return ChatResponse(
+            answer=spin_result["question"],
+            sources=[],
+            spin=spin_result,
+        )
+    elif req.spin_action == "answer" and req.spin_state is not None:
+        spin_result = advance_spin(req.spin_state, req.spin_value)
+        if spin_result["type"] == "spin_complete":
+            return ChatResponse(
+                answer="Based on your answers, here's what I'd recommend:",
+                sources=[],
+                spin=spin_result,
+            )
+        return ChatResponse(
+            answer=spin_result["question"],
+            sources=[],
+            spin=spin_result,
+        )
+
+    # Normal chat flow
     result = await generate_response(req.question, req.message_count)
     return ChatResponse(**result)
 

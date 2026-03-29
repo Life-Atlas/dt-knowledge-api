@@ -1,15 +1,16 @@
 """
-Chat endpoint — RAG-lite using knowledge store + Claude Haiku.
-Falls back to search-only mode if no API key is set.
+Chat endpoint — smart fallback using knowledge store + template synthesis.
+Optionally uses Claude Haiku for richer responses when API key is available.
 """
 import os
+import re
 import httpx
 from knowledge import store
 from anonymizer import anonymize_text
 
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 USE_AI = bool(ANTHROPIC_API_KEY)
-BOOKING_URL = "https://cal.com/nicolaswaern"  # Update with real booking link
+BOOKING_URL = "https://calendly.com/futurecreation"
 
 SYSTEM_PROMPT = """You are a digital twin knowledge assistant, powered by the SMILE methodology (Sustainable Methodology for Impact Lifecycle Enablement) created by Nicolas Waern.
 
@@ -33,52 +34,155 @@ PERSONALIZATION_KEYWORDS = [
 ]
 
 
+# ---------------------------------------------------------------------------
+# Intent detection — figure out what the user actually wants
+# ---------------------------------------------------------------------------
+INTENT_PATTERNS = {
+    "greeting": r"^(hi|hello|hey|good morning|good afternoon|howdy)\b",
+    "what_is": r"\b(what (is|are)|define|explain|tell me about|meaning of)\b",
+    "how_to": r"\b(how (do|can|should|to)|where (do|should) i start|getting started|steps to|guide)\b",
+    "why": r"\b(why (is|are|do|should|does)|what.s the (point|benefit|advantage))\b",
+    "compare": r"\b(difference between|compare|vs\.?|versus|better)\b",
+    "example": r"\b(example|case study|real.world|show me|use case|application)\b",
+    "smile": r"\b(smile|methodology|phase|phases|framework)\b",
+    "opinion": r"\b(necessary|worth|important|should i|do i need|is it worth)\b",
+}
+
+
+def detect_intent(query: str) -> list[str]:
+    """Return list of detected intents from the query."""
+    q = query.lower().strip()
+    intents = []
+    for intent, pattern in INTENT_PATTERNS.items():
+        if re.search(pattern, q):
+            intents.append(intent)
+    return intents or ["general"]
+
+
+# ---------------------------------------------------------------------------
+# Smart fallback response builder
+# ---------------------------------------------------------------------------
+def _extract_key_sentence(content: str) -> str:
+    """Pull the most informative sentence from a knowledge entry."""
+    sentences = re.split(r'(?<=[.!?])\s+', content)
+    # Skip very short sentences, prefer ones with substance
+    for s in sentences:
+        if len(s) > 60 and not s.startswith("The pattern"):
+            return s.strip()
+    return sentences[0].strip() if sentences else content[:200]
+
+
+def _build_smart_response(query: str, results: list, intents: list[str]) -> str:
+    """Build a conversational response from search results + detected intent."""
+
+    if not results:
+        return (
+            "That's an interesting question! I don't have a specific entry on that yet, "
+            "but here are some topics I can help with:\n\n"
+            "- **Digital twins** — what they are and how to get started\n"
+            "- **SMILE methodology** — a proven 6-phase approach to implementation\n"
+            "- **Interoperability** — making systems talk to each other\n"
+            "- **Edge computing** — running intelligence where data lives\n\n"
+            "Try asking about any of these!"
+        )
+
+    top = results[0]
+    others = results[1:4]
+
+    parts = []
+
+    # --- Opening: context-aware, never generic ---
+    if "greeting" in intents:
+        parts.append("Welcome! Let me help you get oriented.\n")
+    elif "what_is" in intents:
+        parts.append("Great starting question — let me break it down.\n")
+    elif "how_to" in intents:
+        parts.append("Good thinking — here's how to approach it.\n")
+    elif "why" in intents:
+        parts.append("That's a key question. Here's the reasoning.\n")
+    elif "opinion" in intents:
+        parts.append("Good question — the short answer is: it depends on your goals. Here's the context.\n")
+    elif "example" in intents:
+        parts.append("Let me share a relevant example.\n")
+
+    # --- Main answer: summarize the top result conversationally ---
+    # Split content into digestible paragraphs
+    content = top.content
+    sentences = re.split(r'(?<=[.!?])\s+', content)
+
+    # First 2-3 sentences as the core answer
+    core = " ".join(sentences[:3])
+    parts.append(f"{core}\n")
+
+    # If there's more substance, add it as a follow-up paragraph
+    if len(sentences) > 3:
+        followup = " ".join(sentences[3:6])
+        parts.append(f"{followup}\n")
+
+    # --- Related insights from other results ---
+    if others:
+        parts.append("\n**Related insights:**\n")
+        for r in others[:3]:
+            key_point = _extract_key_sentence(r.content)
+            # Truncate to keep it scannable
+            if len(key_point) > 150:
+                key_point = key_point[:147] + "..."
+            parts.append(f"- **{r.title}** — {key_point}\n")
+
+    # --- Closing: warm, not salesy ---
+    parts.append("\nFeel free to ask follow-up questions — I'm here to help you navigate this.")
+
+    return "\n".join(parts)
+
+
 def detect_cta_trigger(query: str, message_count: int) -> dict | None:
     query_lower = query.lower()
 
-    # Personalization trigger
     for kw in PERSONALIZATION_KEYWORDS:
         if kw in query_lower:
             return {
-                "type": "consultation",
-                "message": "For tailored guidance on your specific situation, Nicolas offers 1:1 strategy sessions where he can dive deep into your use case.",
-                "cta_text": "Book a 1:1 Session",
-                "cta_url": BOOKING_URL,
+                "type": "spin_offer",
+                "message": "I can help with that! Want to take a quick 2-minute assessment? I'll ask a few questions about your situation and recommend the best way forward.",
+                "cta_text": "Start Assessment",
+                "cta_action": "spin_start",
+                "skip_text": "Skip — book directly",
+                "skip_url": BOOKING_URL,
             }
 
-    # Paid content trigger
     if store.has_paid_matches(query):
         return {
-            "type": "premium",
-            "message": "This topic connects to deeper case studies and implementation patterns available through direct consultation.",
-            "cta_text": "Explore Premium Insights",
-            "cta_url": BOOKING_URL,
+            "type": "spin_offer",
+            "message": "This topic connects to deeper case studies and implementation strategies. Want a personalised recommendation?",
+            "cta_text": "Take 2-Min Assessment",
+            "cta_action": "spin_start",
+            "skip_text": "Skip — book a session",
+            "skip_url": BOOKING_URL,
         }
 
-    # Depth trigger (after 5 messages)
     if message_count >= 5:
         return {
-            "type": "depth",
-            "message": "Getting value from these insights? Nicolas offers focused strategy sessions to accelerate your digital twin journey.",
-            "cta_text": "Book a Strategy Session",
-            "cta_url": BOOKING_URL,
+            "type": "spin_offer",
+            "message": "Getting value from these insights? I can recommend the right next step for your situation — it takes about 2 minutes.",
+            "cta_text": "Find My Best Next Step",
+            "cta_action": "spin_start",
+            "skip_text": "Skip — book directly",
+            "skip_url": BOOKING_URL,
         }
 
     return None
 
 
 async def generate_response(query: str, message_count: int = 0) -> dict:
-    # Search knowledge base
     results = store.search(query, limit=5)
 
-    # Build context from search results
+    # Build context + sources
     context_parts = []
     sources = []
     for r in results:
         context_parts.append(f"[{r.id}] {r.title}: {r.content}")
         sources.append({"id": r.id, "title": r.title, "score": r.score})
 
-    # Check for SMILE-specific questions
+    # SMILE-specific enrichment
     smile_keywords = ["smile", "methodology", "phase", "phases"]
     if any(kw in query.lower() for kw in smile_keywords):
         overview = store.get_smile_overview()
@@ -88,26 +192,18 @@ async def generate_response(query: str, message_count: int = 0) -> dict:
         )
         context_parts.append(f"[SMILE Framework]\n{phases_text}")
 
-    context = "\n\n".join(context_parts) if context_parts else "No directly relevant entries found in the knowledge base."
+    context = "\n\n".join(context_parts) if context_parts else ""
 
-    # Detect CTA
     cta = detect_cta_trigger(query, message_count)
 
-    if USE_AI:
-        # Call Claude Haiku
-        answer = await _call_claude(query, context)
-    else:
-        # Fallback: return formatted search results
-        if results:
-            answer = f"Here's what I found on that topic:\n\n"
-            for r in results[:3]:
-                answer += f"**{r.title}**\n{r.content}\n\n"
-            answer += "For deeper insights, consider booking a session with Nicolas Waern."
-        else:
-            answer = "I don't have specific information on that topic in my knowledge base yet. Try asking about digital twins, SMILE methodology, interoperability, or edge computing."
+    # Detect user intent
+    intents = detect_intent(query)
 
-    # Double-anonymize the response
-    answer = anonymize_text(answer)
+    if USE_AI:
+        answer = await _call_claude(query, context)
+        answer = anonymize_text(answer)
+    else:
+        answer = _build_smart_response(query, results, intents)
 
     return {
         "answer": answer,
@@ -139,7 +235,10 @@ async def _call_claude(query: str, context: str) -> str:
         )
 
         if response.status_code != 200:
-            return f"I'm having trouble connecting right now. Here's a summary from the knowledge base:\n\n{context[:500]}"
+            # Fallback to smart template if Claude fails
+            results = store.search(query, limit=5)
+            intents = detect_intent(query)
+            return _build_smart_response(query, results, intents)
 
         data = response.json()
         return data["content"][0]["text"]

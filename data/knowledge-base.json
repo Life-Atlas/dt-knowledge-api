@@ -1,5 +1,16 @@
 [
   {
+    "id": "kb-020",
+    "title": "What Is a Digital Twin? — Getting Started",
+    "content": "A digital twin is a virtual representation of something real — a building, a person, a city, or even an entire ecosystem. It mirrors the physical world in real time, allowing you to understand, simulate, and optimize what's happening without trial-and-error in the real world. Think of it as a living digital copy that learns and evolves. The visual representation of reality is fundamental, not optional — without it, we perpetuate siloed ways of working. Reality is the one thing everyone shares: across domains, across systems, across time. People change, systems change, but reality persists. That makes it the ultimate boundary-spanning element — a shared context for AI, people, and systems alike. The SMILE methodology starts with Phase 1: Reality Emulation — creating a shared visual and virtual representation of what exists today. From there, you define the outcome you want (impact first, data last) and work backwards. The key: always start visually, always start with reality, and always start with the outcome.",
+    "visibility": "public",
+    "tier": "free",
+    "source": "manual",
+    "tags": ["beginner", "introduction", "getting-started", "what-is", "digital-twin", "start", "visual", "basics"],
+    "created_at": "2026-03-29",
+    "anonymized": true
+  },
+  {
     "id": "kb-001",
     "title": "Impact First, Data Last",
     "content": "The most common mistake in digital twin implementations is starting with data collection. Organizations spend months collecting and integrating data before understanding what impact they want to achieve. SMILE reverses this: start with the desired outcome, trace back through actions, insights, and information to understand what data is actually needed. This reduces implementation time by eliminating unnecessary data collection and focuses investment on value-generating activities.",

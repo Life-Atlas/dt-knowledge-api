@@ -36,9 +36,19 @@ class KnowledgeStore:
             self.smile = json.load(f)
 
     def search(self, query: str, limit: int = 5, include_paid: bool = False) -> list[SearchResult]:
-        terms = query.lower().split()
+        # Clean query: lowercase, strip punctuation for matching
+        import re
+        clean_query = re.sub(r'[^\w\s]', '', query.lower())
+        terms = clean_query.split()
         if not terms:
             return []
+
+        # Detect beginner intent — boost intro content only when no specific topic terms
+        beginner_signals = {"what", "how", "start", "begin", "getting", "started", "basics", "new", "explain", "introduction", "necessary"}
+        topic_signals = {"smile", "edge", "interoperability", "ontology", "ant", "mim", "lean", "mvt", "sustainability", "energy", "building", "buildings", "maritime", "methodology", "phase", "phases"}
+        has_beginner_words = len(beginner_signals.intersection(terms)) >= 1
+        has_topic_words = len(topic_signals.intersection(terms)) >= 1
+        is_beginner = has_beginner_words and not has_topic_words
 
         scored: list[tuple[dict, float]] = []
 
@@ -48,6 +58,9 @@ class KnowledgeStore:
             if entry.get("visibility") != "public":
                 continue
             score = self._score_entry(entry, terms)
+            # Boost beginner-friendly content only for truly introductory questions
+            if is_beginner and any(t in entry.get("tags", []) for t in ["beginner", "introduction", "getting-started"]):
+                score += 10.0
             if score > 0:
                 scored.append((entry, score))
 
@@ -75,6 +88,14 @@ class KnowledgeStore:
 
         return results
 
+    # Common words that shouldn't contribute to title/content matching
+    STOP_WORDS = {"the", "a", "an", "is", "are", "was", "were", "be", "been",
+                  "do", "does", "did", "have", "has", "had", "it", "its",
+                  "to", "of", "in", "for", "on", "with", "at", "by", "from",
+                  "and", "or", "but", "not", "no", "this", "that", "these",
+                  "i", "me", "my", "we", "our", "you", "your", "they", "them",
+                  "even", "also", "just", "very", "so", "too"}
+
     def _score_entry(self, entry: dict, terms: list[str]) -> float:
         score = 0.0
         title = entry.get("title", "").lower()
@@ -82,6 +103,8 @@ class KnowledgeStore:
         tags = " ".join(entry.get("tags", [])).lower()
 
         for term in terms:
+            if term in self.STOP_WORDS:
+                continue
             if term in title:
                 score += 3.0
             if term in tags:
